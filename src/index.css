@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #1c1c1c;
 }
 
 code {
@@ -21,6 +22,10 @@ code {
   min-height: 100vh;
 }
 
+h1 {
+  color: white;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -28,11 +33,11 @@ code {
 }
 
 .dark-mode {
-  background-color: #1c1c1c;
+  background-color: white;
 }
 
 .dark-mode h1 {
-  color: white;
+  color: black;
 }
 
 .notes-list {
@@ -55,6 +60,11 @@ textarea:focus {
   outline: none;
 }
 
+.fa-solid {
+  cursor: pointer;
+  font-size: 32px;
+}
+
 .save {
   background-color: #e1e1e1;
   border: none;
@@ -68,6 +78,10 @@ textarea:focus {
 }
 
 .text {
+  background-color: #fef68a;
+}
+
+.text:focus .change-icon {
   background-color: #fef68a;
 }
 
@@ -90,8 +104,14 @@ textarea:focus {
 }
 
 .change-icon {
+  margin-right: 10px;
+  opacity: 0.5;
+}
+
+.change-icon-activity {
   cursor: pointer;
   margin-right: 10px;
+  opacity: 1;
 }
 
 .delete-icon {

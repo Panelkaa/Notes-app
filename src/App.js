@@ -5,7 +5,7 @@ import Search from './components/Search';
 import Header from './components/Header';
 
 
-const App = () => {
+const App = ({}) => {
   const [notes, setNotes] = useState([
 		
 	]);
@@ -13,6 +13,7 @@ const App = () => {
   const [searchText, setSearchText] = useState('');
 
   const [darkMode, setDarkMode] = useState(false);
+  
 
   useLayoutEffect(() => {
 		const savedNotes = JSON.parse(
@@ -46,11 +47,18 @@ const App = () => {
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes)
   }
+
+
+
   // edit note
-  const editNotes = (id) => {
-    const change = notes.filter((note) => note.id == id)
-    // setNotes(change)
-    console.log(change) 
+  const editNotes = (id,text) => {
+    console.log('ID  ',id)
+    console.log('TEXT  ',text)
+    const newNotes = notes.filter((note) => note.id === id);
+    newNotes[0].text = text;
+    const Array = [...notes];
+
+    setNotes(Array);
   }
 
   return(
@@ -58,7 +66,8 @@ const App = () => {
         <div className="container">
           <Header hundleToggleDarkMode = {setDarkMode}/>
           <Search hundleSearchNote={setSearchText}/>
-          <NotesList notes={notes.filter((note) => 
+          <NotesList 
+          notes={notes.filter((note) => 
               note.text.toLocaleLowerCase().includes(searchText))} 
               hundleAddNote={addNote} 
               hundleDeleteNote={deleteNote}
